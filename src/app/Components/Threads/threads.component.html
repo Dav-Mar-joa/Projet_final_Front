@@ -1,0 +1,40 @@
+<p class="text_gauche">Liste des Threads :</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="side align-self-center" *ngFor="let thread of threads">
+        <button (click)="selectThread(thread)">{{ thread.label }}</button>
+      </div>
+    </div>
+    <div class="col-8 ">
+          <div class="messageList" *ngFor="let message of messages">
+            <div class="main ">
+              <app-messages [message]="message"></app-messages>
+
+              <input
+                type="button"
+                (click)="deleteMessage(message.id)"
+                value="x"
+                title="Supprimer le message"
+                class="button_suppr"
+              />
+            </div>
+        </div>
+    </div>
+
+    <div class="text_gauche">
+      <div classe="messageForm">
+        <p>Entrer le message :</p>
+        <input
+          type="text"
+          [(ngModel)]="this.message"
+          (keyup.enter)="sendMessage()"
+        />
+        <br />
+        <br />
+        <button type="submit" (click)="sendMessage()">Envoyer</button>
+      </div>
+    </div>
+  </div>
+</div>
+

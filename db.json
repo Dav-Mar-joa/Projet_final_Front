@@ -1,0 +1,225 @@
+{
+  "users": [
+    {
+      "username": "Kenza",
+      "id": 1
+    },
+    {
+      "username": "Kenza",
+      "id": 2
+    },
+    {
+      "username": "Kenza",
+      "id": 3
+    },
+    {
+      "username": "kenza",
+      "id": 4
+    },
+    {
+      "username": "aaaa",
+      "id": 5
+    },
+    {
+      "username": "aaaaa",
+      "id": 6
+    },
+    {
+      "username": "aaaa",
+      "id": 7
+    },
+    {
+      "username": "eeee",
+      "id": 8
+    },
+    {
+      "username": "aaaa",
+      "id": 9
+    },
+    {
+      "username": "aaaaa",
+      "id": 10
+    },
+    {
+      "username": "aaaaaaaa",
+      "id": 11
+    },
+    {
+      "username": "aa",
+      "id": 12
+    },
+    {
+      "username": "rrrr",
+      "id": 13
+    },
+    {
+      "username": "aaaa",
+      "id": 14
+    },
+    {
+      "username": "aa",
+      "id": 15
+    },
+    {
+      "username": "rr",
+      "id": 16
+    },
+    {
+      "username": "aa",
+      "id": 17
+    },
+    {
+      "username": "aaaa",
+      "id": 18
+    },
+    {
+      "username": "20",
+      "id": 19
+    },
+    {
+      "username": "9898",
+      "id": 20
+    },
+    {
+      "username": "77788",
+      "id": 21
+    },
+    {
+      "username": "54",
+      "id": 22
+    },
+    {
+      "username": "rrrr",
+      "id": 23
+    },
+    {
+      "username": "rrrr",
+      "id": 24
+    },
+    {
+      "username": "eeee",
+      "id": 25
+    },
+    {
+      "username": "Idir",
+      "id": 26
+    },
+    {
+      "username": "aaaa",
+      "id": 27
+    },
+    {
+      "username": "aa",
+      "id": 28
+    },
+    {
+      "username": "aaa",
+      "id": 29
+    },
+    {
+      "username": "aaa",
+      "id": 30
+    },
+    {
+      "username": "AA",
+      "id": 31
+    },
+    {
+      "username": "aaa",
+      "id": 32
+    },
+    {
+      "username": "David",
+      "id": 33
+    },
+    {
+      "username": "Kadija",
+      "id": 34
+    },
+    {
+      "username": "test",
+      "id": 35
+    },
+    {
+      "username": "Kadija",
+      "id": 36
+    },
+    {
+      "username": "Arame",
+      "id": 37
+    },
+    {
+      "username": "Jean-Jacques",
+      "id": 38
+    }
+  ],
+  "messages": [
+    {
+      "content": "Salut, je suis la première sur le channel Projets !",
+      "authorId": "Kenza",
+      "threadId": "2",
+      "id": 2
+    },
+    {
+      "content": "AA",
+      "authorId": "AA",
+      "threadId": "2",
+      "id": 11
+    },
+    {
+      "content": "22",
+      "authorId": "11",
+      "threadId": "3",
+      "id": 17
+    },
+    {
+      "content": "aaaaa",
+      "authorId": "Idir",
+      "threadId": "3",
+      "date": "2023-12-01T14:27:56.616Z",
+      "id": 26
+    },
+    {
+      "content": "Bon Projet",
+      "authorId": "David",
+      "threadId": "1",
+      "date": "2023-12-01T14:45:24.950Z",
+      "id": 27
+    },
+    {
+      "content": "Bonjour tout le monde, bienvenue sur le mini-slack du groupe 1",
+      "authorId": "Kadija",
+      "threadId": "1",
+      "date": "2023-12-01T15:06:12.751Z",
+      "id": 28
+    },
+    {
+      "content": "Bienvenue sur le projet angular avec la dream-team",
+      "authorId": "Arame",
+      "threadId": "1",
+      "date": "2023-12-01T15:08:02.172Z",
+      "id": 29
+    },
+    {
+      "content": "Bravo à tous les dév sur le projet Mini Slack !",
+      "authorId": "Jean-Jacques",
+      "threadId": "1",
+      "date": "2023-12-01T15:08:53.568Z",
+      "id": 30
+    }
+  ],
+  "threads": [
+    {
+      "id": "1",
+      "label": "Discussion Générale"
+    },
+    {
+      "id": "2",
+      "label": "Projets"
+    },
+    {
+      "id": "3",
+      "label": "Autres"
+    }
+  ]
+}
