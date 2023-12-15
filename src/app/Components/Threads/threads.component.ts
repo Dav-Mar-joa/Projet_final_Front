@@ -1,3 +1,7 @@
+// IL FAUDRA TOUT DECOMMENTER
+
+// Importation des modules nécessaires depuis Angular
+
 import { Component, Input, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -27,7 +31,8 @@ export class ThreadsComponent implements OnInit {
     messages!: Message[]; // Liste des messages associés au thread actuel
     @Input()
     message!: string; // Message à envoyer, lié à un input dans le template
-
+    newThreadName!: string;
+    
     // Constructeur du composant, injecte les services nécessaires
     constructor(
         public threadsService: ThreadsService,
@@ -62,16 +67,6 @@ export class ThreadsComponent implements OnInit {
             this.selectThread(this.threads[0]);
         });
     }
-    deleteMessage(messageId: string) {
-        // Utilisation du service messagesService pour supprimer le message
-        this.messagesService
-            .deleteMessage(messageId)
-            // Utilisation d'un observable pour gérer la réponse asynchrone
-            .subscribe(() => {
-                // Suppression du message du tableau messages
-                this.messages = this.messages.filter(message => message.id !== messageId);
-            });
-    }
 
     // Méthode appelée lorsqu'un message doit être envoyé
     sendMessage() {
@@ -90,4 +85,55 @@ export class ThreadsComponent implements OnInit {
                 this.message = "";
             });
     }
+
+    deleteMessage(messageId: string) {
+        // Utilisation du service messagesService pour supprimer le message
+        this.messagesService
+            .deleteMessage(messageId)
+            // Utilisation d'un observable pour gérer la réponse asynchrone
+            .subscribe(() => {
+                // Suppression du message du tableau messages
+                this.messages = this.messages.filter(message => message.id !== messageId);
+            });
+    }
+
+    deleteThread(threadId: string) {
+        // Utilisation du service threadsService pour supprimer le thread
+        this.threadsService.deleteThread(threadId).subscribe(
+          () => {
+            // Supprimez le thread du tableau des threads
+            this.threads = this.threads.filter(thread => thread.id !== threadId);
+            // Si le thread supprimé était celui actuellement sélectionné, déselectionnez-le
+            if (this.actualThread && this.actualThread.id === threadId) {
+              this.actualThread = { id: '', label: '' };
+              this.messages = []; // Vous voudrez peut-être vider également les messages associés
+            }
+          },
+          (error: any) => {
+            // Gérez les erreurs ici
+            console.error(error);
+          }
+        );
+      }
+      createNewThread() {
+        // Suppose que vous avez une méthode createThread dans threadsService
+        this.threadsService.createThread({
+            // Propriétés nécessaires pour créer un nouveau thread
+            // Par exemple, le nom du thread, l'auteur, etc.
+            label: this.newThreadName
+        }).subscribe(
+            (newThread: any) => {
+                // Une fois le thread créé, mettez à jour la liste des threads
+                this.threads.push(newThread);
+                // Sélectionnez le nouveau thread
+                this.selectThread(newThread);
+                this.newThreadName = "";
+            },
+            (error: any) => {
+                // Gérez les erreurs ici
+                console.error(error);
+            }
+        );
+    }
 }
+

@@ -3,23 +3,38 @@
   <div class="row">
     <div class="col-4">
       <div class="side align-self-center" *ngFor="let thread of threads">
-        <button (click)="selectThread(thread)">{{ thread.label }}</button>
+        <button class="w-100" (click)="selectThread(thread)">{{ thread.label }}</button>
+        <input
+          class="button_thread_suppr"
+          type="button"
+          (click)="deleteThread(thread.id)"
+          value="X"
+          title="Supprimer le message"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          (keyup.enter)="createNewThread()"
+          [(ngModel)]="this.newThreadName"
+        />
+        <button type="submit" (click)="createNewThread()">Créer thread</button>
       </div>
     </div>
-    <div class="col-8 ">
-          <div class="messageList" *ngFor="let message of messages">
-            <div class="main ">
-              <app-messages [message]="message"></app-messages>
+    <div class="col-8">
+      <div class="messageList" *ngFor="let message of messages">
+        <div class="main">
+          <app-messages [message]="message"></app-messages>
 
-              <input
-                type="button"
-                (click)="deleteMessage(message.id)"
-                value="x"
-                title="Supprimer le message"
-                class="button_suppr"
-              />
-            </div>
+          <input
+            type="button"
+            (click)="deleteMessage(message.id)"
+            value="x"
+            title="Supprimer le message"
+            class="button_suppr"
+          />
         </div>
+      </div>
     </div>
 
     <div class="text_gauche">
@@ -37,4 +52,3 @@
     </div>
   </div>
 </div>
-

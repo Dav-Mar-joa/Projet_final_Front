@@ -17,12 +17,15 @@
   flex-direction: column;  */  
 }
 
-.container{
-  /* display: grid;
+.w-100 {
+  width: 100%;
+}
+  /*.container{
+ display: grid;
   grid-template-columns: 1fr 3fr;
    grid-template-rows: 250px;
-   grid-column-gap: 10px;  */
-}
+   grid-column-gap: 10px;  
+}*/
 
 
 
@@ -69,4 +72,10 @@
   width: 20px;
   position: absolute;
   right: 6vw; /* Aligner à droite */
+}
+
+.button_thread_suppr {
+  width: 20px;
+  position: absolute;
+  left: 33.5%;
 }
