@@ -74,7 +74,8 @@ export class ThreadsComponent implements OnInit {
         this.messagesService
             .createMessage({
                 content: this.message,
-                authorId: this.userService.user?.username,
+//                authorId: this.userService.user?.username,
+                authorId: this.userService.user?.id,  //MODIF 2023-12-26
                 threadId: this.actualThread.id,
                 date: new Date().toISOString()
             })
