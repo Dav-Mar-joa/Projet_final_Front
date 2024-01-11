@@ -24,12 +24,12 @@
     <div class="col-8">
       <div class="messageList" *ngFor="let message of messages">
         <div class="main">
-          <app-messages [message]="message"></app-messages>
+          <app-messages [message]="message" [users]="users"></app-messages>
 
           <input
             type="button"
             (click)="deleteMessage(message.id)"
-            value="x"
+            value="X"
             title="Supprimer le message"
             class="button_suppr"
           />

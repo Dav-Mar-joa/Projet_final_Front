@@ -10,7 +10,7 @@ import { FormsModule } from "@angular/forms";
 import { Thread, ThreadsService } from "../../Services/threads.service";
 import { MessagesComponent } from "../Messages/messages.component";
 import { Message, MessagesService } from "../../Services/messages.service";
-import { UserService } from "../../Services/user.service";
+import { User, UserService } from "../../Services/user.service";
 
 @Component({
     // Sélecteur du composant
@@ -29,8 +29,9 @@ export class ThreadsComponent implements OnInit {
     threads!: Thread[]; // Liste des threads
     actualThread!: Thread; // Thread actuellement sélectionné
     messages!: Message[]; // Liste des messages associés au thread actuel
-    @Input()
     message!: string; // Message à envoyer, lié à un input dans le template
+    users!: User[];
+    @Input()
     newThreadName!: string;
     
     // Constructeur du composant, injecte les services nécessaires
@@ -66,6 +67,18 @@ export class ThreadsComponent implements OnInit {
             // Sélectionne le premier thread par défaut
             this.selectThread(this.threads[0]);
         });
+
+        this.userService.getUsers().subscribe((Users: any) => {
+            // Met à jour la liste des utilisateurs
+            this.users = Users;
+            // Affiche les utilisateurs dans la console (à des fins de débogage)
+            console.log(this.users);
+            this.users.forEach(user => {
+                console.log(user);
+                
+            });
+        });
+
     }
 
     // Méthode appelée lorsqu'un message doit être envoyé
@@ -87,7 +100,7 @@ export class ThreadsComponent implements OnInit {
             });
     }
 
-    deleteMessage(messageId: string) {
+    deleteMessage(messageId: number) {
         // Utilisation du service messagesService pour supprimer le message
         this.messagesService
             .deleteMessage(messageId)
@@ -98,7 +111,7 @@ export class ThreadsComponent implements OnInit {
             });
     }
 
-    deleteThread(threadId: string) {
+    deleteThread(threadId: number) {
         // Utilisation du service threadsService pour supprimer le thread
         this.threadsService.deleteThread(threadId).subscribe(
           () => {
@@ -106,7 +119,7 @@ export class ThreadsComponent implements OnInit {
             this.threads = this.threads.filter(thread => thread.id !== threadId);
             // Si le thread supprimé était celui actuellement sélectionné, déselectionnez-le
             if (this.actualThread && this.actualThread.id === threadId) {
-              this.actualThread = { id: '', label: '' };
+              this.actualThread = { id: -1, label: '' };
               this.messages = []; // Vous voudrez peut-être vider également les messages associés
             }
           },
